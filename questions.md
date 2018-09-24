@@ -4,7 +4,7 @@
 
 1.) How long did you spend on the coding test? What would you add to your solution if you had more time? If you didn't spend much time on the coding test then use this as an opportunity to explain what you would add.
 
-    I was able to dedicate about 6 hours of development to the task and 1 to analyze the best way to present myself according to the requirement. 
+    I was able to dedicate about 6 hours of development to the task and one hour to analyze the best way to present myself according to the requirement. 
 
     I would have liked to apply TDD unit tests and integration using Karma and Jasmin but devote the time to the presentation and comply with the requirement. I also thought about adding to graph of reports by date of the devices and a graph of registry of filters.
 
