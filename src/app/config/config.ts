@@ -1,0 +1,1 @@
+export const URL_SERVICES = 'https://recruitment-test-api.devsandbox.knetikcloud.com/devices';

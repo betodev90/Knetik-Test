@@ -5,7 +5,7 @@ import { NopagefoundComponent } from '../nopagefound/nopagefound.component';
 import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-    declarations: [ 
+    declarations: [
         NopagefoundComponent,
         HeaderComponent,
         SidebarComponent,
