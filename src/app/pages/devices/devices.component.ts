@@ -46,14 +46,15 @@ export class DevicesComponent implements OnInit {
   }
 
   changeSince( value: number ) {
-    let since = this.page + value;
-    if ( since >= this.total_page ) {
+    if ( this.page >= this.total_page ) {
       return;
     }
-    if ( since < 0 ) {
+    if ( this.page < 0 ) {
       return;
     }
-    this.page += value;
+    if (this.first || this.page > 0) {
+      this.page += value;
+    }
     this.loadDevices();
   }
 
