@@ -198,5 +198,38 @@
         "size": 2
     }
 
-
+    4.- In Knetik APIs now does not make the correct query and I propose that adding this functionality
+    
+    GET - https://recruitment-test-api.devsandbox.knetikcloud.com/devices?filter=location:12&connected=false
+        
+    {
+        "devices": [
+            {
+                "id": "9b2e667e-5679-44ea-8e7a-125fe4e71ffc",
+                "location": 12,
+                "mac_address": "D1-3C-9C-2E-49-21",
+                "connected": false,
+                "parent_location": 89,
+                "updated_at": "2018-01-08T21:53:21Z",
+                "signal": -33
+            },
+            {
+                "id": "0ca0db22-748a-4fb9-bb1e-d4bc5dbd8020",
+                "location": 12,
+                "mac_address": "B5-E4-26-E3-5D-AE",
+                "connected": false,
+                "parent_location": 40,
+                "updated_at": "2018-04-13T16:58:41Z",
+                "signal": -70
+            }
+        ],
+        "first": true,
+        "last": false,
+        "page": 1,
+        "total_pages": 1,
+        "total_elements": 2,
+        "sort": null,
+        "number_of_elements": 2,
+        "size": 2
+    }
 
