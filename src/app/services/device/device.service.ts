@@ -21,8 +21,7 @@ export class DeviceService {
   }
 
   filterByDevice( term: string ) {
-    console.log('In Service: ' + term);
-    let url = URL_SERVICES + '?filter=location:' + term;
+    let url = URL_SERVICES + '?filter=' + term;
     return this.http.get( url );
   }
 

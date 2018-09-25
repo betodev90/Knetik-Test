@@ -6,10 +6,10 @@
         <div class="card">
             <div class="card-body">
                 <select class="form-control" (change)="ChangingValue($event.target.value)" name="fiter_types">
-                        <option value='{{type[0]}}' *ngFor="let type of fiter_types">
-                            {{type[1]}}
-                        </option>
-                    </select>
+                    <option value='{{type[0]}}' *ngFor="let type of fiter_types">
+                        {{type[1]}}
+                    </option>
+                </select>
                 <input #input (keyup)="filterDeviceByLocation( input.value )" type="text" class="form-control" placeholder="Search devices for location">
             </div>
         </div>

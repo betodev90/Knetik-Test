@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { Device } from '../../models/device.model';
 import { DeviceService } from '../../services/service.index';
@@ -13,21 +13,24 @@ declare var swal: any;
 
 export class DevicesComponent implements OnInit {
   devices: Device[] = [];
-  size: number;
   loading: boolean;
   // Pagination
   page: number;
+  size: number;
   first: boolean;
   last: boolean;
   total_page: number;
   total_elements: number;
   number_of_elements: number;
-
-  // public fiter_types = ['location', 'parent_location', 'connected'];
+  // Options filters
   public fiter_types = [
     ['location', 'Location'],
     ['parent_location', 'Parent Location']
+    // connected
   ];
+  filter_selected: string;
+  @ViewChild('input')
+  myInputVariable: ElementRef;
 
   constructor(
     public _deviceService: DeviceService,
@@ -36,6 +39,7 @@ export class DevicesComponent implements OnInit {
 
   ngOnInit() {
     this.loadDevices();
+    this.filter_selected = 'location';
   }
 
   loadDevices() {
@@ -67,10 +71,16 @@ export class DevicesComponent implements OnInit {
   }
 
   filterDeviceByLocation( term: string ) {
+    if (this.filter_selected.length <= 0) {
+      this.loadDevices();
+      return;
+    }
     if (term.length <= 0) {
       this.loadDevices();
       return;
     }
+    term = this.filter_selected + ':' + term;
+    console.log(term);
     this.loading = true;
     this._deviceService.filterByDevice( term )
     .subscribe( (resp: any) => {
@@ -81,6 +91,7 @@ export class DevicesComponent implements OnInit {
   }
 
   ChangingValue( value: string ) {
-    console.log(value);
+    this.filter_selected = value;
+    this.myInputVariable.nativeElement.value = '';
   }
 }
