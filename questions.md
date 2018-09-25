@@ -39,6 +39,7 @@
     
     I propose the following:
     * Using Caching that is a common technique used to increase the responsiveness of APIs.
+    * Change some things that I explain in the next question.
 
 5.) Please describe yourself using JSON.
 
