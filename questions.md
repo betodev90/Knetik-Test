@@ -41,6 +41,7 @@
 5.) Please describe yourself using JSON.
     I propose the following:
     Example:
+    
     1. Using representative names how keys in this example change `content` for `devices`
     GET - https://recruitment-test-api.devsandbox.knetikcloud.com/devices?filter=location:12
     {
