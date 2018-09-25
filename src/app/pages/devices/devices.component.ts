@@ -23,7 +23,11 @@ export class DevicesComponent implements OnInit {
   total_elements: number;
   number_of_elements: number;
 
-  public fiter_types = ['location', 'parent_location', 'connected'];
+  // public fiter_types = ['location', 'parent_location', 'connected'];
+  public fiter_types = [
+    ['location', 'Location'],
+    ['parent_location', 'Parent Location']
+  ];
 
   constructor(
     public _deviceService: DeviceService,
@@ -74,5 +78,9 @@ export class DevicesComponent implements OnInit {
       this.devices = resp.content;
       this.loading = false;
     });
+  }
+
+  ChangingValue( value: string ) {
+    console.log(value);
   }
 }
