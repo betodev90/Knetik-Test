@@ -17,9 +17,51 @@
     I chose Angular because have more experience working with him and I agree with philosophy about 
     DEVELOP THROUGH ALL PLATFORMS. The latest version it is 6.1.8
 
-    ...
+    Improve about Web Components
 
-    `code`
+    `device.component.ts`
+    
+    `
+    import { Component, OnInit } from '@angular/core';
+    import { Router, ActivatedRoute } from '@angular/router';
+    import { Device } from '../../models/device.model';
+    import { DeviceService } from '../../services/service.index';
+
+    @Component({
+        selector: 'app-device-view',
+        templateUrl: './device-view.component.html',
+        styles: []
+    })
+    export class DeviceViewComponent implements OnInit {
+        device: Device = new Device('', 0, '', false, 0, '', 0);
+        status_label: string;
+
+        constructor(
+            public activatedRoute: ActivatedRoute,
+            public _deviceService: DeviceService,
+            public router: Router
+        ) {
+            activatedRoute.params.subscribe( params => {
+            let id = params['id'];
+            this.loadDevice  ( id );
+            });
+        }
+
+        ngOnInit() {
+        }
+
+        loadDevice( id: string ) {
+            this._deviceService.getDevice( id ).subscribe( device => {
+            this.device = device[0];
+            if (this.device.connected) {
+                this.status_label = 'On-Line';
+            } else {
+                this.status_label = 'Off-Line';
+            }
+            });
+        }
+    }
+    `
 
 3.) How would you track down a performance issue in production? Have you ever had to do this?
     Well I usually when I 'm track down a performance issue in production, I see in services logs AWS that allows us to verify parameters as a connection, 
