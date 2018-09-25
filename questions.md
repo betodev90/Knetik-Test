@@ -17,9 +17,15 @@
     `code`
 
 3.) How would you track down a performance issue in production? Have you ever had to do this?
-    Well I usually when I 'm track down a performance issue in production, I see in services logs AWS that allows us to verify parameters as a connection, timeout response fo server, the status of the database, codes of response http (200, 404, 500, 204, so on on).  
+    Well I usually when I 'm track down a performance issue in production, I see in services logs AWS that allows us to verify parameters as a connection, 
+    timeout response fo server, the status of the database, 
+    codes of response http (200, 404, 500, 204, so on on).  
 
-    And yes I have to do all the test about performance whe a project its released in production. One a time when I was working in a website about news We had a issue in performance when It gave a terrible happening in my country as was the earthquake in 2016 and the website had many simultaneous visits over 20000 requests. The plan was applied cache, improve queries in databse, segmenting articles related to that event at that time I didn't know AWS code suite how CodeCommit, CodeBuild, CodePipeline, Elastik Beanstalk that make the start-up process quicker and verify logs.
+    And yes I have to do all the test about performance whe a project its released in production. 
+    One a time when I was working in a website about news we had a issue in performance when It gave a terrible happening in my country as was the earthquake in 2016 
+    and the website had many simultaneous visits over 20000 requests. 
+    The plan was applied cache, improve queries in databse, segmenting articles related to that event at that time I didn't know AWS code suite how CodeCommit, 
+    CodeBuild, CodePipeline, Elastik Beanstalk that make the start-up process quicker and verify logs.
 
 
 4.) How would you improve the Knetik APIs that you just used?
