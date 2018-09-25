@@ -10,6 +10,7 @@ import { DeviceService } from '../../services/service.index';
 })
 export class DeviceViewComponent implements OnInit {
   device: Device = new Device('', 0, '', false, 0, '', 0);
+  status_label: string;
 
   constructor(
     public activatedRoute: ActivatedRoute,
@@ -28,6 +29,11 @@ export class DeviceViewComponent implements OnInit {
   loadDevice( id: string ) {
     this._deviceService.getDevice( id ).subscribe( device => {
       this.device = device[0];
+      if (this.device.connected) {
+        this.status_label = 'On-Line';
+      } else {
+        this.status_label = 'Off-Line';
+      }
     });
   }
 }

@@ -6,11 +6,17 @@
                     <h3 class="box-title m-b-0">Device: {{ device.id }}</h3>
                 </div>
                 <div class="col-md-4">
-                    <h4 class="box-title m-b-0">Connected:
-                        <span [className]="device.connected ? 'round round-success text-center' : 'round round-danger text-center'">
-                        <div data-icon='f' class='linea-icon linea-basic' ngbTooltip="Tooltip on top"></div>
-                    </span>
-                    </h4>
+                    <div class="row">
+                        <h3 class="box-title m-b-0">Connected:
+                            <span [className]="device.connected ? 'round round-success text-center' : 'round round-danger text-center'">
+                                <div data-icon='f' class='linea-icon linea-basic' ngbTooltip="Tooltip on top">
+                                </div>
+                            </span>
+                        </h3>
+                    </div>
+                    <div class="row">
+                        <span [className]="device.connected ? 'label label-success text-center' : 'label label-default text-center'" class="label label-default" style='color:black'>{{status_label}}</span>
+                    </div>
                 </div>
             </div>
             <hr>
@@ -46,12 +52,20 @@
                     <p class="text-muted">{{device.updated_at | date: 'medium'}}</p>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-3">
+                    SIGNAL:
+                </div>
+                <div class="col-md-9">
+                    <p class="text-muted">{{device.signal}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
 <div class='row text-center'>
     <div class="btn-wrapper">
-        <button type="button" class="btn btn-primary col-md-6">Return to Devices</button>
+        <a [routerLink]="['/devices']" class="btn btn-primary">Return to Devices</a>
     </div>
 </div>
