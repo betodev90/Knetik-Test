@@ -29,6 +29,8 @@ export class DevicesComponent implements OnInit {
     // connected
   ];
   filter_selected: string;
+  path_filter: string;
+
   @ViewChild('input')
   myInputVariable: ElementRef;
 
@@ -47,7 +49,7 @@ export class DevicesComponent implements OnInit {
     this._deviceService.loadDevices( this.page )
     .subscribe( (resp: any) => {
       this.total_page = resp.total_pages;
-      this.size = resp.size;
+      this.size = resp.number_of_elements;
       this.total_elements = resp.total_elements;
       this.devices = resp.content;
       if ( resp.first ) {
@@ -67,7 +69,22 @@ export class DevicesComponent implements OnInit {
     if (this.first || this.page > 0) {
       this.page += value;
     }
-    this.loadDevices();
+    if (this.myInputVariable.nativeElement.value === '') {
+      this.loadDevices();
+    } else {
+      let term = this.filter_selected + ':' + this.myInputVariable.nativeElement.value + '&page=' + this.page;
+      this._deviceService.filterByDevice( term )
+      .subscribe( (resp: any) => {
+        console.log(resp);
+        this.devices = resp.content;
+        this.loading = false;
+
+        this.total_page = resp.total_pages;
+        this.size = resp.number_of_elements;
+        this.total_elements = resp.total_elements;
+        this.devices = resp.content;
+      });
+    }
   }
 
   filterDeviceByLocation( term: string ) {
@@ -80,18 +97,24 @@ export class DevicesComponent implements OnInit {
       return;
     }
     term = this.filter_selected + ':' + term;
-    console.log(term);
     this.loading = true;
     this._deviceService.filterByDevice( term )
     .subscribe( (resp: any) => {
-      console.log(resp);
+      // console.log(resp);
       this.devices = resp.content;
       this.loading = false;
+
+      this.total_page = resp.total_pages;
+      this.size = resp.size;
+      this.total_elements = resp.total_elements;
+      this.devices = resp.content;
     });
   }
 
   ChangingValue( value: string ) {
     this.filter_selected = value;
     this.myInputVariable.nativeElement.value = '';
+    this.page = 1;
+    this.loadDevices();
   }
 }
