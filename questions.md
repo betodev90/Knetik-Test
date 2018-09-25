@@ -34,5 +34,74 @@
 
 
 4.) How would you improve the Knetik APIs that you just used?
+    
+    I propose the following:
+    * Using Caching that is a common technique used to increase the responsiveness of APIs.
 
 5.) Please describe yourself using JSON.
+    I propose the following:
+    Example:
+    1. Using representative names how keys in this example change `content` for `devices`
+    GET - https://recruitment-test-api.devsandbox.knetikcloud.com/devices?filter=location:12
+    {
+        "devices": [
+            {
+                "id": "f2dfa892-f059-4a6e-abf3-dd93ed257764",
+                "location": 12,
+                "mac_address": "A4-D3-64-EC-AC-69",
+                "connected": false,
+                "parent_location": 55,
+                "updated_at": "2017-08-20T05:47:46Z",
+                "signal": -38
+            },
+            {
+                "id": "cbba8b81-b2cf-4c72-8352-d128e9812d79",
+                "location": 12,
+                "mac_address": "F3-41-16-DD-8E-22",
+                "connected": false,
+                "parent_location": 25,
+                "updated_at": "2017-12-14T07:12:35Z",
+                "signal": -97
+            }
+        ],
+        "first": true,
+        "last": false,
+        "total_pages": 4,
+        "total_elements": 91,
+        "sort": null,
+        "number_of_elements": 25,
+        "size": 25
+    }
+
+    2. If that response fields how `total_elements`, `number_of_elements`, `total_pages`. You could response the page number if added how `QueryParam` by example:
+    GET - https://recruitment-test-api.devsandbox.knetikcloud.com/devices?filter=location:12&page=3
+    {
+        "devices": [
+            {
+                "id": "9b2e667e-5679-44ea-8e7a-125fe4e71ffc",
+                "location": 12,
+                "mac_address": "D1-3C-9C-2E-49-21",
+                "connected": false,
+                "parent_location": 89,
+                "updated_at": "2018-01-08T21:53:21Z",
+                "signal": -33
+            },
+            {
+                "id": "0ca0db22-748a-4fb9-bb1e-d4bc5dbd8020",
+                "location": 12,
+                "mac_address": "B5-E4-26-E3-5D-AE",
+                "connected": true,
+                "parent_location": 40,
+                "updated_at": "2018-04-13T16:58:41Z",
+                "signal": -70
+            }
+        ],
+        "first": false,
+        "last": false,
+        "page": 3,
+        "total_pages": 4,
+        "total_elements": 91,
+        "sort": null,
+        "number_of_elements": 25,
+        "size": 25
+    }
