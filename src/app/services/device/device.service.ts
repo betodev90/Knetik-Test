@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import 'rxjs/add/operator/map';
 import { URL_SERVICES } from '../../config/config';
 import { Device } from '../../models/device.model';
-
-import { Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 import { Router } from '@angular/router';
 
@@ -30,7 +28,6 @@ export class DeviceService {
 
   getDevice( id: string ) {
     let url = URL_SERVICES + '?filter=id:' + id;
-    return this.http.get( url );
+    return this.http.get( url ).map( (resp: any) => resp.content);
   }
-
 }

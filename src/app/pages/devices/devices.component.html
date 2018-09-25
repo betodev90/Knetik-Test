@@ -5,6 +5,11 @@
     <div class="col-12">
         <div class="card">
             <div class="card-body">
+                <select class="form-control" name="fiter_types">
+                        <option *ngFor="let type of fiter_types">
+                            {{type}}
+                        </option>
+                    </select>
                 <input #input (keyup)="filterDeviceByLocation( input.value )" type="text" class="form-control" placeholder="Search devices for location">
             </div>
         </div>
@@ -54,7 +59,9 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let device of devices">
-                            <td class="text-center">{{device.id}}</td>
+                            <td class="text-center">
+                                <a [routerLink]="['/devices', device.id ]">{{device.id}}</a>
+                            </td>
                             <td class="text-center">{{device.location}}</td>
                             <td class='text-center'>
                                 {{device.mac_address}}

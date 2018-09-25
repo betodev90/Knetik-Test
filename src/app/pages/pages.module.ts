@@ -10,13 +10,15 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { Graphs1Component } from './graphs1/graphs1.component';
 import { DevicesComponent } from './devices/devices.component';
+import { DeviceViewComponent } from './device-view/device-view.component';
 
 @NgModule({
     declarations: [
         PagesComponent,
         DashboardComponent,
         Graphs1Component,
-        DevicesComponent
+        DevicesComponent,
+        DeviceViewComponent
     ],
     exports: [
         DashboardComponent,

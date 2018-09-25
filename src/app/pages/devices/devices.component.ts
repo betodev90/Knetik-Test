@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Device } from '../../models/device.model';
-import { DeviceService } from '../../services/device/device.service';
+import { DeviceService } from '../../services/service.index';
 
 declare var swal: any;
 
@@ -22,8 +23,11 @@ export class DevicesComponent implements OnInit {
   total_elements: number;
   number_of_elements: number;
 
+  public fiter_types = ['location', 'parent_location', 'connected'];
+
   constructor(
-    public _deviceService: DeviceService
+    public _deviceService: DeviceService,
+    public router: Router
   ) { }
 
   ngOnInit() {
@@ -71,5 +75,4 @@ export class DevicesComponent implements OnInit {
       this.loading = false;
     });
   }
-
 }
