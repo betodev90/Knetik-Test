@@ -17,9 +17,9 @@
     I chose Angular because have more experience working with him and I agree with philosophy about 
     DEVELOP THROUGH ALL PLATFORMS. The latest version it is 6.1.8
 
-    Improve about Web Components
+    * Improve about Web Components
 
-    `device.component.ts`
+    `device-view.component.ts`
     
     `
     import { Component, OnInit } from '@angular/core';
@@ -62,6 +62,13 @@
         }
     }
     `
+    * Improve Angular CLI 1.7
+    * Library RxJS 6 
+        // Angular 6 Observable
+        `import { Observable } from 'rxjs';`
+        Example:
+        `device.service.ts`
+        `import 'rxjs/add/operator/map';`
 
 3.) How would you track down a performance issue in production? Have you ever had to do this?
     Well I usually when I 'm track down a performance issue in production, I see in services logs AWS that allows us to verify parameters as a connection, 
