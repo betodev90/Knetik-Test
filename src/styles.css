@@ -4,3 +4,8 @@
 .table th {
     padding: 0.50rem;
 }
+
+.info-span {
+    font-size: 16px;
+    font-weight: bold;
+}

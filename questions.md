@@ -12,6 +12,8 @@
     I also thought about adding to graph of reports by date of the devices and a graph 
     of registry of filters.
 
+    Also I would have added more elements that interact with each other to select the search parameters in `/devices`
+
 2.) What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
 
     I chose Angular because have more experience working with him and I agree with philosophy about 

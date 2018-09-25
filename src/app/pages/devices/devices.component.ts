@@ -25,11 +25,12 @@ export class DevicesComponent implements OnInit {
   // Options filters
   public fiter_types = [
     ['location', 'Location'],
-    ['parent_location', 'Parent Location']
-    // connected
+    ['parent_location', 'Parent Location'],
+    ['connected', 'Connected']
   ];
   filter_selected: string;
   path_filter: string;
+  is_connected: boolean;
 
   @ViewChild('input')
   myInputVariable: ElementRef;
@@ -60,6 +61,8 @@ export class DevicesComponent implements OnInit {
   }
 
   changeSince( value: number ) {
+    let inputValue = this.myInputVariable.nativeElement.value;
+    let term: string;
     if ( this.page >= this.total_page ) {
       return;
     }
@@ -69,10 +72,14 @@ export class DevicesComponent implements OnInit {
     if (this.first || this.page > 0) {
       this.page += value;
     }
-    if (this.myInputVariable.nativeElement.value === '') {
+    if (inputValue === '') {
       this.loadDevices();
     } else {
-      let term = this.filter_selected + ':' + this.myInputVariable.nativeElement.value + '&page=' + this.page;
+      if (this.filter_selected === 'connected') {
+        term = this.filter_selected + ':' + this.is_connected + '&page=' + this.page;
+      } else {
+        term = this.filter_selected + ':' + this.myInputVariable.nativeElement.value + '&page=' + this.page;
+      }
       this._deviceService.filterByDevice( term )
       .subscribe( (resp: any) => {
         console.log(resp);
@@ -87,7 +94,7 @@ export class DevicesComponent implements OnInit {
     }
   }
 
-  filterDeviceByLocation( term: string ) {
+  filterDevice( term: string ) {
     if (this.filter_selected.length <= 0) {
       this.loadDevices();
       return;
@@ -96,11 +103,23 @@ export class DevicesComponent implements OnInit {
       this.loadDevices();
       return;
     }
-    term = this.filter_selected + ':' + term;
+    if (this.filter_selected === 'connected') {
+      let inputValue = this.myInputVariable.nativeElement.value;
+      if ( inputValue !== '' && (inputValue === 'on-line' || inputValue === 'off-line')){
+        console.log(inputValue);
+        if (inputValue === 'on-line') {
+          this.is_connected = true;
+        } else {
+          this.is_connected = false;
+        }
+        term = this.filter_selected + ':' + this.is_connected;
+      }
+    } else {
+      term = this.filter_selected + ':' + term;
+    }
     this.loading = true;
     this._deviceService.filterByDevice( term )
     .subscribe( (resp: any) => {
-      // console.log(resp);
       this.devices = resp.content;
       this.loading = false;
 

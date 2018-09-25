@@ -10,7 +10,11 @@
                         {{type[1]}}
                     </option>
                 </select>
-                <input #input (keyup)="filterDeviceByLocation( input.value )" type="text" class="form-control" placeholder="Search devices for location">
+                <input #input (keyup)="filterDevice( input.value )" type="text" class="form-control" placeholder="Please to do the search first, select the type of parameter.">
+                <label class='label label-info'>Please If selected parameter is `connected` send 
+                    <span #off class='info-span'>off-line</span> or 
+                    <span #on class='info-span'>on-line</span>
+                </label>
             </div>
         </div>
     </div>
