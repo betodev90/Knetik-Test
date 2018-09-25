@@ -11,6 +11,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { Graphs1Component } from './graphs1/graphs1.component';
 import { DevicesComponent } from './devices/devices.component';
 import { DeviceViewComponent } from './device-view/device-view.component';
+import { DevicesLocationComponent } from './devices-location/devices-location.component';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { DeviceViewComponent } from './device-view/device-view.component';
         DashboardComponent,
         Graphs1Component,
         DevicesComponent,
-        DeviceViewComponent
+        DeviceViewComponent,
+        DevicesLocationComponent
     ],
     exports: [
         DashboardComponent,

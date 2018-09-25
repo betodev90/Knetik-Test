@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 import { Device } from '../../models/device.model';
 import { DeviceService } from '../../services/service.index';
 
-declare var swal: any;
-
 @Component({
   selector: 'app-devices',
   templateUrl: './devices.component.html',
@@ -63,7 +61,7 @@ export class DevicesComponent implements OnInit {
   changeSince( value: number ) {
     let inputValue = this.myInputVariable.nativeElement.value;
     let term: string;
-    if ( this.page >= this.total_page ) {
+    if ( this.page > this.total_page ) {
       return;
     }
     if ( this.page < 0 ) {

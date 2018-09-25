@@ -1,0 +1,94 @@
+<!-- ============================================================== -->
+<!-- Start Search Content -->
+<!-- ============================================================== -->
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <h2>Devices by Location</h2>
+                <input #input type="text" (keyup)="loadDevicesByLocation( input.value )" class="form-control" placeholder="Please to do the search enter to location code.">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Search Content -->
+<!-- ============================================================== -->
+
+<!-- ============================================================== -->
+<!-- Start Loading Content -->
+<!-- ============================================================== -->
+<div class="row animated fadeIn" *ngIf="loading">
+    <div class="col-sm-12">
+        <div class="class alert-warning text-center">
+            <strong>Loading</strong>
+            <br>
+            <i class="fa fa-refresh fa-spin fa-2x"></i>
+            <br>
+            <span>Please wait</span>
+        </div>
+    </div>
+</div>
+<!-- ============================================================== -->
+<!-- End Loading Content -->
+<!-- ============================================================== -->
+
+<!-- ============================================================== -->
+<!-- Start Main Content -->
+<!-- ============================================================== -->
+<div class="row animated fadeIn" *ngIf="!loading">
+    <div class="col-12">
+        <div class="card" *ngIf="result">
+            <div class="card-body">
+                <h2 class="card-title"> Location: {{location_code}}</h2>
+                <hr>
+                <h5>
+                    Devices ( <small>{{size}}</small> )
+                </h5>
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center" style="width: 20%">ID</th>
+                            <th class="text-center">LOCATION</th>
+                            <th class="text-center">MAC ADDRESS</th>
+                            <th class="text-center">CONNECTED</th>
+                            <th class="text-center">UPDATED AT</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let device of devices">
+                            <td class="text-center">
+                                <a [routerLink]="['/devices', device.id ]">{{device.id}}</a>
+                            </td>
+                            <td class="text-center">{{device.location}}</td>
+                            <td class='text-center'>
+                                {{device.mac_address}}
+                            </td>
+                            <td class="text-center">
+                                <span [className]="device.connected ? 'round round-success text-center' : 'round round-danger text-center'">
+                                    <div data-icon='f' class='linea-icon linea-basic' ngbTooltip="Tooltip on top"></div>
+                                </span>
+                            </td>
+                            <td class="text-center">{{device.updated_at| date: 'yyyy-mm-dd'}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="dataTables_info" id="example23_info" role="status" aria-live="polite">
+                            Showing {{page}} to {{total_page}} of {{total_elements}} entries
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-right">
+                        <button (click)="page>1 && changeSincePage(-1)" class="btn btn-secondary">
+                                    Previous
+                            </button>
+                        <button (click)="changeSincePage(1)" class="btn btn-secondary">
+                                    Next
+                            </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
