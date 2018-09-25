@@ -110,3 +110,41 @@
         "number_of_elements": 25,
         "size": 25
     }
+
+    3. About the numbers of the items like response can you added how `QueryParam` 
+    a `limit` that will show only this number of elements, by example:
+
+    GET - https://recruitment-test-api.devsandbox.knetikcloud.com/devices?filter=location:12&page=3&limit=2
+    {
+        "devices": [
+            {
+                "id": "9b2e667e-5679-44ea-8e7a-125fe4e71ffc",
+                "location": 12,
+                "mac_address": "D1-3C-9C-2E-49-21",
+                "connected": false,
+                "parent_location": 89,
+                "updated_at": "2018-01-08T21:53:21Z",
+                "signal": -33
+            },
+            {
+                "id": "0ca0db22-748a-4fb9-bb1e-d4bc5dbd8020",
+                "location": 12,
+                "mac_address": "B5-E4-26-E3-5D-AE",
+                "connected": true,
+                "parent_location": 40,
+                "updated_at": "2018-04-13T16:58:41Z",
+                "signal": -70
+            }
+        ],
+        "first": false,
+        "last": false,
+        "page": 3,
+        "total_pages": 4,
+        "total_elements": 91,
+        "sort": null,
+        "number_of_elements": 2,
+        "size": 2
+    }
+
+
+
