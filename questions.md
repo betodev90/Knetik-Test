@@ -9,11 +9,13 @@
 
     I would have liked to apply TDD unit tests and integration using Karma and Jasmin 
     but devote the time to the presentation and comply with the requirement. 
-    I also thought about adding to graph of reports by date of the devices and a graph of registry of filters.
+    I also thought about adding to graph of reports by date of the devices and a graph 
+    of registry of filters.
 
 2.) What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
 
-    I chose Angular because have more experience working with him and I agree with philosophy about DEVELOP THROUGH ALL PLATFORMS. The latest version it is 6.1.8
+    I chose Angular because have more experience working with him and I agree with philosophy about 
+    DEVELOP THROUGH ALL PLATFORMS. The latest version it is 6.1.8
 
     ...
 
