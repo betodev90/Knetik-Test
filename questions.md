@@ -67,7 +67,8 @@
                 "parent_location": 25,
                 "updated_at": "2017-12-14T07:12:35Z",
                 "signal": -97
-            }
+            },
+            ...
         ],
         "first": true,
         "last": false,
@@ -99,7 +100,8 @@
                 "parent_location": 40,
                 "updated_at": "2018-04-13T16:58:41Z",
                 "signal": -70
-            }
+            },
+            ...
         ],
         "first": false,
         "last": false,
